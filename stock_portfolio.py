@@ -17,8 +17,7 @@ class StockPortfolio:
 
     def get_stock_price(self, symbol):
         try:
-            response = requests.get(f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={symbol}&apikey=ZW1V8JQWL4NVOFB9')
-
+            response = requests.get(f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={symbol}&apikey=YOUR_API_KEY')
             response.raise_for_status()
             return float(response.json()['Global Quote']['05. price'])
         except (requests.exceptions.RequestException, KeyError, ValueError) as e:
